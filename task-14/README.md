@@ -10,3 +10,10 @@ Level 4 -> Level 5:For this level the password was in the files of "inhere" dire
 
 Level 5 -> Level 6:For this level there were 80 files in the directory so using the find command and using the the "-size" and "-r" options we find the password in the folder named"maybehere07" in the file named "file2"
 
+Level 6 -> Level 7:This level was similar to the last level just it required more parameters in the find command.
+
+Level 7 -> Level 8:In this level the password the password was net to the word millionth so I had to just grep the word millionth
+
+Level 8 -> Level 9:In this level the password was stored in a file called data.txt and it is given the password is the line that appears once so we had to use sort -u(It removes duplicate instances in the file) and uniq -c(It counts how many times a line is repeating) and the line repeating once was the password.
+
+Level 9 -> Level 10:In this level the password was stored in a data.txt which had few human readable strings so we had to use string command(It shows the human readable strings in the file) and the grep
