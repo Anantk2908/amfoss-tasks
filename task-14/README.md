@@ -1,5 +1,3 @@
-#README
-
 Level 0 -> Level 1:For this level password was saved in a file named readme which was accessed using the cat command
 
 Level 1 -> Level 2:For this level the password was saved in a file named "-" so I used "./-" with the cat command
