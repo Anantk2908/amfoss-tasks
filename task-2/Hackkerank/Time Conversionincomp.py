@@ -30,16 +30,29 @@ elif(n[8][0]=="P"):
     else:
         n.pop(0)
 
-
+while True:
+    if(n[-2][0]=='P'):
+        if(n[0][0]==12):
+            break;
+        else:
+            n[0][0]+=12
+            break;
+    elif(n[-2][0]=='A'):
+        break;
+    
+n.pop(-1)
 n.pop(-1)
 
+for i in range(len(n)):
+    n[i][0]=str(n[i][0])
 
-##str=""
-##for j in range(len(n)):
-##    str+=n[j][0]
-##print(str)
 
-print(n)
+str=""
+for j in range(len(n)):
+    str+=n[j][0]
+print(str)
+
+
     
 
     
