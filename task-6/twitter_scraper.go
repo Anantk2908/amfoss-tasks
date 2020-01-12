@@ -20,8 +20,8 @@ func main() {
 		consumerSecret string
 	}{}
 	
-	flag.StringVar(&flags.consumerKey, "consumer-key","h2j2L68UkUxO72RWlE5H93Q43", "Twitter Consumer Key")
-	flag.StringVar(&flags.consumerSecret, "consumer-secret","lOlkJzJTxfgCm6pKrRrDnx7MJOzhV6W66dQUIq4zXw8YDBTnhD", "Twitter Consumer Secret")
+	flag.StringVar(&flags.consumerKey, "consumer-key","Your twitter consumer key", "Twitter Consumer Key")
+	flag.StringVar(&flags.consumerSecret, "consumer-secret","Your twitter consumer secret", "Twitter Consumer Secret")
 	flag.Parse()
 	flagutil.SetFlagsFromEnv(flag.CommandLine, "TWITTER")
 
