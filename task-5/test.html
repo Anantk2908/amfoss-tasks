@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<title>GITHUB User Searcher</title>
+<head>
+<body style="background-color:black;">
+<center>
+<div id="container">
+<style>
+#Name
+div.container{}
+
+#Bio 
+  div.container{}
+
+
+   </style>
+  <font color="white">
+  <h2>A webpage which helps you to search user in github</h2>
+  <form>
+  <center>Enter the Username:<br>
+  <input type="text" id="user_name" placeholder="Enter the username">
+  </center>
+  </form>
+
+  <button id=search onclick="get_Details()">Get info</button>
+  <br><div id="Username"></div>
+  <h1><br><div id="Name" align ="center"></div></br>
+  <br><div id="Bio" align ="center"></div></br></h1>   
+  <br><img id="Avatar" height="0" width="0" align="center"></img></br>
+
+
+  </div>
+</center>
+</font>
+<script>
+
+          function get_Details() {
+                var login = document.getElementById("user_name").value;
+                var query = `query get_details($login: String!) {
+                                user(login: $login) {
+                                    login
+                                    name
+                                    avatarUrl
+                                    bio
+                                }
+                            }`
+                fetch('https://api.github.com/graphql', {                       //Endpoint in graphql
+                    method: 'POST',                                     //Using POST request with the json payload
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'Authorization': 'bearer c2ac13a0534bad03341725b0a9258306bec83529',
+                    },
+                    body: JSON.stringify({
+                        query,
+                        variables: { login },
+                    })
+                })
+                    .then(r => r.json())
+                    .then(data => {
+                            if(data.data.user!=null)
+
+                            {
+                            document.getElementById("Name").innerHTML = data.data.user.name;
+                            document.getElementById("Bio").innerHTML =  data.data.user.bio;
+                            document.getElementById("Avatar").src = data.data.user.avatarUrl;
+                            document.getElementById("Avatar").height = 500;
+                            document.getElementById("Avatar").width = 500;
+                                                        }
+                            else{
+                              alert("No user exists!!")
+                            }
+                    }).catch(function(err){
+                        console.log('Error ', err);
+                    });
+            }
+        </script>
+
+
+    </body>
+</html>
